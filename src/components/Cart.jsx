@@ -1,4 +1,6 @@
 import styles from '../styles/Cart.module.css';
+import { useOutletContext } from 'react-router-dom';
+
 
 const Cart = () => {
   return (
