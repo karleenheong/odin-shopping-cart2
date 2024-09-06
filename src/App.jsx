@@ -23,10 +23,15 @@ const App = () => {
     }
   };
 
+  const removeFromCart = product => {
+    console.log(`Removing ${product.name} from cart`);
+    setCartItems(cartItems.filter(item => item.id !== product.id));
+  };
+
   return (
     <div>
       <Navbar />
-      <Outlet context={{cartItems, addToCart}} />
+      <Outlet context={{ cartItems, addToCart, removeFromCart }} />
     </div>
   );
 };

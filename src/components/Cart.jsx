@@ -2,18 +2,23 @@ import styles from '../styles/Cart.module.css';
 import { useOutletContext } from 'react-router-dom';
 
 const Cart = () => {
-  const { cartItems } = useOutletContext();
+  const { cartItems, removeFromCart } = useOutletContext();
 
   return (
     <div>
       <h1>Your Cart</h1>
-      {cartItems.map(product => (
-        <div key={product.id}>
-          <p>{product.name}</p>
-          <p>${(Math.round(product.price * 100) / 100).toFixed(2)}</p>
-          <p>Quantity: {product.quantity}</p>
-        </div>
-      ))}
+      {cartItems.length === 0 ? (
+        <p>Your Cart is Empty</p>
+      ) : (
+        cartItems.map(product => (
+          <div key={product.id}>
+            <p>{product.name}</p>
+            <p>${(Math.round(product.price * 100) / 100).toFixed(2)}</p>
+            <p>Quantity: {product.quantity}</p>
+            <button onClick={() => removeFromCart(product)}>Delete</button>
+          </div>
+        ))
+      )}
     </div>
   );
 };
