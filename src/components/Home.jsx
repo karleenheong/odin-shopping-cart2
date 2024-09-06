@@ -1,17 +1,16 @@
 import styles from '../styles/Home.module.css';
 import { useOutletContext } from 'react-router-dom';
-import { useState } from 'react';
 
 const products = [
   {
     id: 1,
     name: 'Bar Soap',
-    price: 3.00
+    price: 3.00,
   },
   {
     id: 2,
     name: 'Hand Spray',
-    price: 5.00
+    price: 5.00,
   },
 ];
 
@@ -24,8 +23,8 @@ const Home = () => {
       {products.map(product => (
         <div key={product.id}>
           <p>{product.name}</p>
-          <p>${price}</p>
-          <button>Add to Cart</button>
+          <p>${(Math.round(product.price * 100) / 100).toFixed(2)}</p>
+          <button onClick={() => addToCart(product, 1)}>Add to Cart</button>
         </div>
       ))}
     </div>
