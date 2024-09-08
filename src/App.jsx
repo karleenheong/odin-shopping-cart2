@@ -28,9 +28,11 @@ const App = () => {
     setCartItems(cartItems.filter(item => item.id !== product.id));
   };
 
+  const totalNumberItems = cartItems.reduce((sum, product) => sum + product.quantity, 0);
+
   return (
     <div>
-      <Navbar />
+      <Navbar totalNumberItems={totalNumberItems}/>
       <Outlet context={{ cartItems, addToCart, removeFromCart }} />
     </div>
   );

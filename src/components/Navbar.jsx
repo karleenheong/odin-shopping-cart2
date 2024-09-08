@@ -1,8 +1,8 @@
 import styles from '../styles/Navbar.module.css';
 import { NavLink } from 'react-router-dom';
-import { useOutletContext } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({totalNumberItems}) => {
+
   return (
     <nav className={styles.navbar}>
       <ul className={styles.navLinks}>
@@ -19,7 +19,7 @@ const Navbar = () => {
             to="/cart"
             className={({ isActive }) => (isActive ? styles.hideLink : '')}
           >
-            Cart
+            Cart {totalNumberItems}
           </NavLink>
         </li>
       </ul>
