@@ -30,10 +30,12 @@ const App = () => {
 
   const totalNumberItems = cartItems.reduce((sum, product) => sum + product.quantity, 0);
 
+  const totalPrice = (Math.round(cartItems.reduce((sum, product) => sum + (product.price * product.quantity), 0) * 100) / 100).toFixed(2);
+
   return (
     <div>
       <Navbar totalNumberItems={totalNumberItems}/>
-      <Outlet context={{ cartItems, addToCart, removeFromCart }} />
+      <Outlet context={{ cartItems, addToCart, removeFromCart, totalPrice }} />
     </div>
   );
 };
