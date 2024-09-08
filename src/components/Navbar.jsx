@@ -19,7 +19,7 @@ const Navbar = ({totalNumberItems}) => {
             to="/cart"
             className={({ isActive }) => (isActive ? styles.hideLink : '')}
           >
-            Cart {totalNumberItems}
+            Cart ({totalNumberItems})
           </NavLink>
         </li>
       </ul>
