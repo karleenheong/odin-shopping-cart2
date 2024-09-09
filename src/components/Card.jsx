@@ -4,6 +4,7 @@ import { useState } from 'react';
 const Card = ({ product, addToCart }) => {
   const [inputValue, setInputValue] = useState('1');
   const [showInvalidMsg, setInvalidMsg] = useState(false);
+  const [inCart, setInCart] = useState(false);
 
   const handleChange = e => {
     setInputValue(e.target.value);
@@ -19,6 +20,7 @@ const Card = ({ product, addToCart }) => {
       setInvalidMsg(false);
       const quantity = Number(inputValue);
       addToCart(product, quantity);
+      setInCart(true);
     } else {
       setInvalidMsg(true);
     }
@@ -41,27 +43,61 @@ const Card = ({ product, addToCart }) => {
 
   return (
     <div className={styles.productDiv}>
-      {/* {showInvalidMsg && alert('Invalid Quantity. Please enter a whole number between 1 and 999.')} */}
       <div>
         <img className={styles.productImg} src={product.image} />
         <p>{product.title}</p>
       </div>
+
       <div className={styles.lowerDiv}>
         <div className={styles.price}>
           <p>${(Math.round(product.price * 100) / 100).toFixed(2)}</p>
         </div>
+
         <div className={styles.quantityDiv}>
-          <div className={styles.plusMinus}><button onClick={decrement}>-</button></div>
-          <div className={styles.quantityInput}><input type="text" value={inputValue} onChange={handleChange} /></div>
-          <div className={styles.plusMinus}><button onClick={increment}>+</button></div>
+          <div className={styles.plusMinus}>
+            {inCart ? (
+              <button onClick={decrement} className={styles.disabled}>
+                -
+              </button>
+            ) : (
+              <button onClick={decrement}>-</button>
+            )}
+          </div>
+          <div className={styles.quantityInput}>
+            {inCart ? (
+              <input
+                type="text"
+                value={inputValue}
+                className={styles.disabled}
+              />
+            ) : (
+              <input type="text" value={inputValue} onChange={handleChange} />
+            )}
+          </div>
+          <div className={styles.plusMinus}>
+            {inCart ? (
+              <button onClick={increment} className={styles.disabled}>
+                +
+              </button>
+            ) : (
+              <button onClick={increment}>+</button>
+            )}
+          </div>
           {showInvalidMsg && (
             <p className={styles.invalidMsg}>
               Invalid Quantity. Please enter a whole number between 1 and 999.
             </p>
           )}
         </div>
+
         <div>
-          <button onClick={handleAddToCart} className={styles.atcBtn}>Add to Cart</button>
+          {inCart ? (
+            <p className={styles.inCart}>In cart</p>
+          ) : (
+            <button onClick={handleAddToCart} className={styles.atcBtn}>
+              Add to Cart
+            </button>
+          )}
         </div>
       </div>
     </div>
