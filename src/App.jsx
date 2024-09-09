@@ -9,7 +9,6 @@ const App = () => {
   const addToCart = (product, qty) => {
     console.log(`Adding ${qty} of ${product.name} to cart`);
     const existingProduct = cartItems.find(item => item.id === product.id);
-
     if (existingProduct) {
       setCartItems(
         cartItems.map(item =>
@@ -28,14 +27,50 @@ const App = () => {
     setCartItems(cartItems.filter(item => item.id !== product.id));
   };
 
-  const totalNumberItems = cartItems.reduce((sum, product) => sum + product.quantity, 0);
+  const updateQuantity = (product, amount) => {
+    const existingProduct = cartItems.find(item => item.id === product.id);
+    if (existingProduct) {
+      setCartItems(
+        cartItems.map(item =>
+          item.id === product.id
+            ? {
+                ...existingProduct,
+                quantity: existingProduct.quantity + amount,
+              }
+            : item,
+        ),
+      );
+    } else {
+      setCartItems([...cartItems, { ...product }]);
+    }
+  };
 
-  const totalPrice = (Math.round(cartItems.reduce((sum, product) => sum + (product.price * product.quantity), 0) * 100) / 100).toFixed(2);
+  const totalNumberItems = cartItems.reduce(
+    (sum, product) => sum + product.quantity,
+    0,
+  );
+
+  const totalPrice = (
+    Math.round(
+      cartItems.reduce(
+        (sum, product) => sum + product.price * product.quantity,
+        0,
+      ) * 100,
+    ) / 100
+  ).toFixed(2);
 
   return (
     <div>
-      <Navbar totalNumberItems={totalNumberItems}/>
-      <Outlet context={{ cartItems, addToCart, removeFromCart, totalPrice }} />
+      <Navbar totalNumberItems={totalNumberItems} />
+      <Outlet
+        context={{
+          cartItems,
+          addToCart,
+          removeFromCart,
+          totalPrice,
+          updateQuantity,
+        }}
+      />
     </div>
   );
 };

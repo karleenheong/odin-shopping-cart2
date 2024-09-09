@@ -1,7 +1,7 @@
 import styles from '../styles/Card.module.css';
 import { useState } from 'react';
 
-const Card = ({product, addToCart}) => {
+const Card = ({ product, addToCart }) => {
   const [inputValue, setInputValue] = useState('1');
   const [showInvalidMsg, setInvalidMsg] = useState(false);
 
@@ -16,29 +16,29 @@ const Card = ({product, addToCart}) => {
   };
 
   const handleAddToCart = () => {
-    if(validInput()) {
+    if (validInput()) {
       setInvalidMsg(false);
-      const quantity =  Number(inputValue);
+      const quantity = Number(inputValue);
       addToCart(product, quantity);
     } else {
       setInvalidMsg(true);
     }
-  }
+  };
 
   const increment = () => {
-    const quantity =  Number(inputValue);
-    if(validInput() && quantity < 999) {
+    const quantity = Number(inputValue);
+    if (validInput() && quantity < 999) {
       console.log('increment');
       setInputValue(quantity + 1);
     }
-  }
+  };
 
   const decrement = () => {
-    const quantity =  Number(inputValue);
-    if(validInput() && quantity > 1) {
+    const quantity = Number(inputValue);
+    if (validInput() && quantity > 1) {
       setInputValue(quantity - 1);
     }
-  }
+  };
 
   return (
     <div>
@@ -48,15 +48,19 @@ const Card = ({product, addToCart}) => {
       </div>
       <div>
         <button onClick={decrement}>-</button>
-        <input type='text' value={inputValue} onChange={handleChange} />
+        <input type="text" value={inputValue} onChange={handleChange} />
         <button onClick={increment}>+</button>
-        {showInvalidMsg && <p className={styles.invalidMsg}>Invalid Quantity. Please enter a whole number between 1 and 999.</p>}
+        {showInvalidMsg && (
+          <p className={styles.invalidMsg}>
+            Invalid Quantity. Please enter a whole number between 1 and 999.
+          </p>
+        )}
       </div>
       <div>
         <button onClick={handleAddToCart}>Add to Cart</button>
       </div>
     </div>
   );
-}
+};
 
 export default Card;

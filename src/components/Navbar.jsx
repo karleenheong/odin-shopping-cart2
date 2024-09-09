@@ -1,8 +1,7 @@
 import styles from '../styles/Navbar.module.css';
 import { NavLink } from 'react-router-dom';
 
-const Navbar = ({totalNumberItems}) => {
-
+const Navbar = ({ totalNumberItems }) => {
   return (
     <nav className={styles.navbar}>
       <ul className={styles.navLinks}>
