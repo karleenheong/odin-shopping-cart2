@@ -7,7 +7,7 @@ const App = () => {
   const [cartItems, setCartItems] = useState([]);
 
   const addToCart = (product, qty) => {
-    console.log(`Adding ${qty} of ${product.name} to cart`);
+    console.log(`Adding ${qty} of ${product.title} to cart`);
     const existingProduct = cartItems.find(item => item.id === product.id);
     if (existingProduct) {
       setCartItems(
@@ -23,7 +23,7 @@ const App = () => {
   };
 
   const removeFromCart = product => {
-    console.log(`Removing ${product.name} from cart`);
+    console.log(`Removing ${product.title} from cart`);
     setCartItems(cartItems.filter(item => item.id !== product.id));
   };
 

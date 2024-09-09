@@ -14,6 +14,9 @@ const Navbar = ({ totalNumberItems }) => {
           </NavLink>
         </li>
         <li>
+          <h1 className={styles.logo}>K's Shop</h1>
+        </li>
+        <li>
           <NavLink
             to="/cart"
             className={({ isActive }) => (isActive ? styles.hideLink : '')}

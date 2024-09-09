@@ -28,7 +28,7 @@ const Cart = () => {
         ) : (
           cartItems.map(product => (
             <div key={product.id}>
-              <p>{product.name}</p>
+              <p>{product.title}</p>
               <p>${(Math.round(product.price * 100) / 100).toFixed(2)}</p>
               <div>
                 <button onClick={() => decreaseQuantity(product)}>-</button>
@@ -41,6 +41,9 @@ const Cart = () => {
         )}
       </div>
       <div>Total: ${totalPrice}</div>
+      <div>
+        <button>Proceed to Checkout</button>
+      </div>
     </div>
   );
 };
