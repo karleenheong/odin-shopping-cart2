@@ -8,15 +8,16 @@
   justify-content: space-between;
   text-align: center;
   height: 400px;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   font-size: 1rem;
+  padding: 10px;
 }
 
 .productImg {
   width: 200px;
   height: 200px;
   margin: 10px;
-  border: 1px solid green;
+  /* border: 1px solid green; */
 }
 
 .lowerDiv {
@@ -40,4 +41,38 @@
   border-radius: 5%;
   font-size: 1.05rem;
   margin: 5px;
+}
+
+.quantityDiv {
+  display: flex;
+  justify-content: center;
+}
+
+.plusMinus {
+  height: 20px;
+  width: 20px;
+  padding: 15px;
+  background-color: rgb(241, 241, 241);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid green; */
+}
+
+.quantityInput {
+  /* border: 1px solid green; */
+  display: flex;
+  align-items: center;
+}
+
+.quantityInput input {
+  border: none;
+  background-color: none;
+  text-align: center;
+  font-size: 1.05rem;
+  width: 75px;
+}
+
+input:focus{
+  outline: none;
 }

@@ -49,10 +49,10 @@ const Card = ({ product, addToCart }) => {
         <div className={styles.price}>
           <p>${(Math.round(product.price * 100) / 100).toFixed(2)}</p>
         </div>
-        <div>
-          <button onClick={decrement}>-</button>
-          <input type="text" value={inputValue} onChange={handleChange} />
-          <button onClick={increment}>+</button>
+        <div className={styles.quantityDiv}>
+          <div className={styles.plusMinus}><button onClick={decrement}>-</button></div>
+          <div className={styles.quantityInput}><input type="text" value={inputValue} onChange={handleChange} /></div>
+          <div className={styles.plusMinus}><button onClick={increment}>+</button></div>
           {showInvalidMsg && (
             <p className={styles.invalidMsg}>
               Invalid Quantity. Please enter a whole number between 1 and 999.
