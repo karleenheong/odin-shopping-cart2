@@ -1,0 +1,105 @@
+.cartContainer {
+  width: 100%;
+  padding: 50px;
+}
+
+.pageTitle {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.productsDiv {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  margin: 20px;
+  text-align: center;
+}
+
+.headings {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  font-size: 1.2rem;
+  margin: 15px 0;
+  text-align: center;
+}
+
+#headingProduct {
+  text-align: left;
+}
+
+.productDiv {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  margin: 25px 0;
+}
+
+.gridText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.productImg img {
+  height: 100px;
+  width: 100px;
+}
+
+.plusMinus {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.plusMinus button {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(241, 241, 241);
+  text-align: center;
+}
+
+.quantity {
+  font-size: 1.05rem;
+  width: 75px;
+}
+
+.trashBtn {
+  height: 25px;
+  width: 25px;
+  margin-left: 20px;
+}
+
+.trashBtn img,
+button {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+}
+
+.productDiv::after {
+  content: '';
+  grid-column: 1 / -1; /* Span all columns */
+  height: 1px;
+  background-color: rgb(223, 223, 223);
+  margin-top: 25px; /* Space above the line */
+}
+
+/* Remove the line after the last product */
+.product-Div:last-child::after {
+  content: none;
+}
+
+hr {
+  border-top: 1px solid rgb(223, 223, 223);
+}
+
+/* div {
+  border: 1px solid purple;
+} */

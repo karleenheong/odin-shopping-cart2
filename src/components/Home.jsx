@@ -25,13 +25,7 @@ const Home = () => {
     <div>
       <div className={styles.productsDiv}>
         {products.map(product => (
-          <Card
-            key={product.id}
-            product={product}
-            addToCart={addToCart}
-            className={styles.productDiv}
-            imgClass={styles.productImg}
-          />
+          <Card key={product.id} product={product} addToCart={addToCart} />
         ))}
       </div>
     </div>

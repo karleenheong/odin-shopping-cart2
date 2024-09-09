@@ -62,19 +62,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border: 1px solid green; */
 }
 
 .plusMinus button {
   height: 100%;
   width: 100%;
   background-color: rgb(241, 241, 241);
-  /* border: 1px solid green; */
   text-align: center;
 }
 
 .quantityInput {
-  /* border: 1px solid green; */
   display: flex;
   align-items: center;
 }
