@@ -1,12 +1,15 @@
 .navbar {
   background-color: #061029;
   padding: 25px;
+  border: 1px solid purple;
+  width: 100%;
 }
 
 .navLinks {
   display: flex;
   list-style: none;
   justify-content: space-between;
+  width: 100%;
 }
 
 .navLinks a {

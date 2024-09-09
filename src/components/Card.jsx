@@ -41,6 +41,7 @@ const Card = ({ product, addToCart }) => {
 
   return (
     <div className={styles.productDiv}>
+      {/* {showInvalidMsg && alert('Invalid Quantity. Please enter a whole number between 1 and 999.')} */}
       <div>
         <img className={styles.productImg} src={product.image} />
         <p>{product.title}</p>

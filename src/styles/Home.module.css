@@ -11,3 +11,31 @@ input[type='number']::-webkit-outer-spin-button {
   gap: 40px 35px;
   margin: 50px 30px;
 }
+
+/* Tablet styles */
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  .productsDiv {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 40px 35px;
+    margin: 50px 30px;
+  }
+}
+
+/* Mobile styles */
+@media screen and (max-width: 767px) {
+  .productsDiv {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto;
+    gap: 40px 35px;
+    margin: 50px 30px;
+  }
+  /* .plusMinus {
+    height: 50px;
+    width: 50px;
+  }
+
+  .plusMinus button {
+    font-size: 18px;
+  } */
+}
