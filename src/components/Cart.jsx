@@ -72,11 +72,12 @@ const Cart = () => {
           </div>
         )}
       </div>
-
-      <div>Total: ${totalPrice}</div>
-      <div>
-        <button>Proceed to Checkout</button>
+        
+      <div className={styles.totalDiv}>
+        <div className={styles.totalPrice}>Total: ${totalPrice}</div>
+        <button className={styles.checkoutBtn}>Proceed to Checkout</button>
       </div>
+      
     </div>
   );
 };
