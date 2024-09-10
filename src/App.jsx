@@ -59,6 +59,10 @@ const App = () => {
     ) / 100
   ).toFixed(2);
 
+  const calcSubtotal = (product) => {
+    return (Math.round(product.quantity * product.price * 100) / 100).toFixed(2);
+  }
+
   return (
     <div>
       <Navbar totalNumberItems={totalNumberItems} />
@@ -69,6 +73,7 @@ const App = () => {
           removeFromCart,
           totalPrice,
           updateQuantity,
+          calcSubtotal
         }}
       />
     </div>

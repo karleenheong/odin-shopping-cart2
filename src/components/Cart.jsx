@@ -3,7 +3,7 @@ import { useOutletContext } from 'react-router-dom';
 import trashIcon from '../assets/trash.png';
 
 const Cart = () => {
-  const { cartItems, removeFromCart, totalPrice, updateQuantity } =
+  const { cartItems, removeFromCart, totalPrice, updateQuantity, calcSubtotal } =
     useOutletContext();
 
   const increaseQuantity = product => {
@@ -26,7 +26,7 @@ const Cart = () => {
 
       <div className={styles.productsDiv}>
         {cartItems.length === 0 ? (
-          <div className={styles.headingProduct}>Your Cart is Empty</div>
+          <div className={styles.emptyTxt}>Your Cart is Empty</div>
         ) : (
           <div>
             <div className={styles.headings}>
@@ -66,7 +66,7 @@ const Cart = () => {
                   </div>
                 </div>
 
-                <div className={styles.gridText}>$100</div>
+                <div className={styles.gridText}>{calcSubtotal(product)}</div>
               </div>
             ))}
           </div>

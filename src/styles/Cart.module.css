@@ -32,6 +32,11 @@
   text-align: left;
 }
 
+.emptyTxt {
+  font-size: 1.2rem;
+  margin: 20px;
+}
+
 .productDiv {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
