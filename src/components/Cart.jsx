@@ -75,7 +75,7 @@ const Cart = () => {
         
       <div className={styles.totalDiv}>
         <div className={styles.totalPrice}>Total: ${totalPrice}</div>
-        <button className={styles.checkoutBtn}>Proceed to Checkout</button>
+        {totalPrice > 0 && <button className={styles.checkoutBtn}>Proceed to Checkout</button>}
       </div>
       
     </div>
