@@ -11,7 +11,7 @@ const Navbar = ({ totalNumberItems }) => {
             to="/"
             className={({ isActive }) => (isActive ? styles.hideLink : '')}
           >
-            Back to Shop
+            <div className={styles.backToShop}>Continue Shopping</div>
           </NavLink>
         </li>
         <li>
@@ -20,11 +20,11 @@ const Navbar = ({ totalNumberItems }) => {
         <li>
           <NavLink
             to="/cart"
-            className={({ isActive }) => (isActive ? styles.hideLink : '')}
+            // className={({ isActive }) => (isActive ? styles.hideLink : '')}
           >
             <div className={styles.cartDiv}>
               <img src={cartIcon} className={styles.cartIcon} /> 
-              <div className={styles.cartQuantity}>({totalNumberItems})</div>
+              {totalNumberItems > 0 && <div class={styles.cartBadge}>{totalNumberItems}</div>}
             </div>
             
           </NavLink>
