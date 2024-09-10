@@ -1,5 +1,6 @@
 import styles from '../styles/Navbar.module.css';
 import { NavLink } from 'react-router-dom';
+import cartIcon from '../assets/cart.png';
 
 const Navbar = ({ totalNumberItems }) => {
   return (
@@ -21,7 +22,11 @@ const Navbar = ({ totalNumberItems }) => {
             to="/cart"
             className={({ isActive }) => (isActive ? styles.hideLink : '')}
           >
-            Cart ({totalNumberItems})
+            <div className={styles.cartDiv}>
+              <img src={cartIcon} className={styles.cartIcon} /> 
+              <div className={styles.cartQuantity}>({totalNumberItems})</div>
+            </div>
+            
           </NavLink>
         </li>
       </ul>

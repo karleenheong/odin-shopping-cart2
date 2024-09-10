@@ -30,3 +30,20 @@
   color: white;
   font-size: 1.5rem;
 }
+
+.cartDiv {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.cartIcon {
+  height: 40px;
+  width: 40px;
+  filter: brightness(0) invert(1);
+}
+
+.cartQuantity {
+  font-size: 1.2rem;
+}
