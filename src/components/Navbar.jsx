@@ -20,11 +20,10 @@ const Navbar = ({ totalNumberItems }) => {
         <li>
           <NavLink
             to="/cart"
-            // className={({ isActive }) => (isActive ? styles.hideLink : '')}
           >
             <div className={styles.cartDiv}>
-              <img src={cartIcon} className={styles.cartIcon} /> 
-              {totalNumberItems > 0 && <div class={styles.cartBadge}>{totalNumberItems}</div>}
+              <img src={cartIcon} alt='cart icon' className={styles.cartIcon} /> 
+              {totalNumberItems > 0 && <div class={styles.cartBadge} data-testid='cartBadge'>{totalNumberItems}</div>}
             </div>
             
           </NavLink>
