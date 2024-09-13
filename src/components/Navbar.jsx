@@ -22,7 +22,7 @@ const Navbar = ({ totalNumberItems }) => {
             <div className={styles.cartDiv}>
               <img src={cartIcon} alt="cart icon" className={styles.cartIcon} />
               {totalNumberItems > 0 && (
-                <div class={styles.cartBadge} data-testid="cart-badge">
+                <div className={styles.cartBadge} data-testid="cart-badge">
                   {totalNumberItems}
                 </div>
               )}

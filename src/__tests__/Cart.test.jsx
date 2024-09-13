@@ -1,3 +1,8 @@
+import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { render, screen, fireEvent } from '@testing-library/react';
+import Cart from '../components/Cart';
+
+
 // const mockProducts = [
 //   {
 //     id: 1,
