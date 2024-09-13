@@ -44,34 +44,54 @@ const Cart = () => {
             <hr />
 
             {cartItems.map(product => (
-              <div key={product.id} className={styles.productDiv}>
+              <div
+                key={product.id}
+                className={styles.productDiv}
+                data-testid="product"
+              >
                 <div className={styles.productImg}>
-                  <img src={product.image} />
+                  <img src={product.image} alt="product image" />
                 </div>
 
-                <div className={styles.gridText}>{product.title}</div>
+                <div className={styles.gridText} data-testid="title">
+                  {product.title}
+                </div>
 
-                <div className={styles.gridText}>
+                <div className={styles.gridText} data-testid="price">
                   ${(Math.round(product.price * 100) / 100).toFixed(2)}
                 </div>
 
                 <div className={styles.gridText}>
                   <div className={styles.plusMinus}>
-                    <button onClick={() => decreaseQuantity(product)}>-</button>
+                    <button
+                      onClick={() => decreaseQuantity(product)}
+                      data-testid="decrement"
+                    >
+                      -
+                    </button>
                   </div>
-                  <div className={styles.quantity}>{product.quantity}</div>
+                  <div className={styles.quantity} data-testid="quantity">
+                    {product.quantity}
+                  </div>
                   <div className={styles.plusMinus}>
-                    <button onClick={() => increaseQuantity(product)}>+</button>
+                    <button
+                      onClick={() => increaseQuantity(product)}
+                      data-testid="increment"
+                    >
+                      +
+                    </button>
                   </div>
 
                   <div className={styles.trashBtn}>
                     <button onClick={() => removeFromCart(product)}>
-                      <img src={trashIcon} />
+                      <img src={trashIcon} alt="trash" />
                     </button>
                   </div>
                 </div>
 
-                <div className={styles.gridText}>{calcSubtotal(product)}</div>
+                <div className={styles.gridText} data-testid="subtotal">
+                  {calcSubtotal(product)}
+                </div>
               </div>
             ))}
           </div>
@@ -79,9 +99,13 @@ const Cart = () => {
       </div>
 
       <div className={styles.totalDiv}>
-        <div className={styles.totalPrice}>Total: ${totalPrice}</div>
+        <div className={styles.totalPrice} data-testid="total">
+          Total: ${totalPrice}
+        </div>
         {totalPrice > 0 && (
-          <button className={styles.checkoutBtn}>Proceed to Checkout</button>
+          <button className={styles.checkoutBtn} data-testid="checkout">
+            Proceed to Checkout
+          </button>
         )}
       </div>
     </div>
