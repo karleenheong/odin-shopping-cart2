@@ -17,9 +17,7 @@ vi.mock('react-router-dom', async () => {
 
 vi.mock('../components/Navbar', () => ({
   default: ({ totalNumberItems }) => (
-    <div data-testid="navbar">
-      Navbar Mock ({totalNumberItems})
-    </div>
+    <div data-testid="navbar">Navbar Mock ({totalNumberItems})</div>
   ),
 }));
 
@@ -27,7 +25,7 @@ const renderApp = () => {
   return render(
     <BrowserRouter>
       <App />
-    </BrowserRouter>
+    </BrowserRouter>,
   );
 };
 
@@ -41,7 +39,7 @@ const mockProduct2 = {
   id: 2,
   title: 'hand spray',
   price: 3.99,
-}
+};
 
 describe('App', () => {
   describe('Display', () => {
