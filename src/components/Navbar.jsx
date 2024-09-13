@@ -18,14 +18,15 @@ const Navbar = ({ totalNumberItems }) => {
           <h1 className={styles.logo}>K's Shop</h1>
         </li>
         <li>
-          <NavLink
-            to="/cart"
-          >
+          <NavLink to="/cart">
             <div className={styles.cartDiv}>
-              <img src={cartIcon} alt='cart icon' className={styles.cartIcon} /> 
-              {totalNumberItems > 0 && <div class={styles.cartBadge} data-testid='cartBadge'>{totalNumberItems}</div>}
+              <img src={cartIcon} alt="cart icon" className={styles.cartIcon} />
+              {totalNumberItems > 0 && (
+                <div class={styles.cartBadge} data-testid="cart-badge">
+                  {totalNumberItems}
+                </div>
+              )}
             </div>
-            
           </NavLink>
         </li>
       </ul>

@@ -44,23 +44,35 @@ const Card = ({ product, addToCart }) => {
   return (
     <div className={styles.productDiv}>
       <div>
-        <img className={styles.productImg} src={product.image} />
-        <p>{product.title}</p>
+        <img
+          className={styles.productImg}
+          src={product.image}
+          alt="product image"
+        />
+        <p data-testid="title">{product.title}</p>
       </div>
 
       <div className={styles.lowerDiv}>
         <div className={styles.price}>
-          <p>${(Math.round(product.price * 100) / 100).toFixed(2)}</p>
+          <p data-testid="price">
+            ${(Math.round(product.price * 100) / 100).toFixed(2)}
+          </p>
         </div>
 
         <div className={styles.quantityDiv}>
           <div className={styles.plusMinus}>
             {inCart ? (
-              <button onClick={decrement} className={styles.disabled}>
+              <button
+                onClick={decrement}
+                className={styles.disabled}
+                data-testid="decrement"
+              >
                 -
               </button>
             ) : (
-              <button onClick={decrement}>-</button>
+              <button onClick={decrement} data-testid="decrement">
+                -
+              </button>
             )}
           </div>
           <div className={styles.quantityInput}>
@@ -76,11 +88,17 @@ const Card = ({ product, addToCart }) => {
           </div>
           <div className={styles.plusMinus}>
             {inCart ? (
-              <button onClick={increment} className={styles.disabled}>
+              <button
+                onClick={increment}
+                className={styles.disabled}
+                data-testid="increment"
+              >
                 +
               </button>
             ) : (
-              <button onClick={increment}>+</button>
+              <button onClick={increment} data-testid="increment">
+                +
+              </button>
             )}
           </div>
           {showInvalidMsg && (
@@ -94,7 +112,11 @@ const Card = ({ product, addToCart }) => {
           {inCart ? (
             <p className={styles.inCart}>In cart</p>
           ) : (
-            <button onClick={handleAddToCart} className={styles.atcBtn}>
+            <button
+              onClick={handleAddToCart}
+              className={styles.atcBtn}
+              data-testid="atc"
+            >
               Add to Cart
             </button>
           )}

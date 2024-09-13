@@ -1,14 +1,14 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 
 describe('navbar', () => {
-  const renderNavbar = (totalNumberItems) => {
-    render (
+  const renderNavbar = totalNumberItems => {
+    render(
       <BrowserRouter>
         <Navbar totalNumberItems={totalNumberItems} />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
   };
 
@@ -34,19 +34,19 @@ describe('navbar', () => {
   describe('cart quantity', () => {
     it('does not show cart badge when cart is empty', () => {
       renderNavbar(0);
-      expect(screen.queryByTestId('cartBadge')).not.toBeInTheDocument();
+      expect(screen.queryByTestId('cart-badge')).not.toBeInTheDocument();
     });
 
     it('cart badge is visible when item count above 0', () => {
       renderNavbar(8);
-      expect(screen.getByTestId('cartBadge')).toBeInTheDocument();
+      expect(screen.getByTestId('cart-badge')).toBeInTheDocument();
     });
 
     it('cart badge shows the correct number of items', () => {
       renderNavbar(99);
-      expect(screen.getByTestId('cartBadge')).toHaveTextContent('99');
-    })
-  });  
+      expect(screen.getByTestId('cart-badge')).toHaveTextContent('99');
+    });
+  });
 });
 
 /*
