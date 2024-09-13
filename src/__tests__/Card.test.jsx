@@ -65,7 +65,7 @@ describe('Product card', () => {
   });
 
   describe('Input quantity box', () => {
-    it('allows user to type in input box', () => {
+    it('input box shows what user has typed', () => {
       const inputElement = screen.getByRole('textbox');
       fireEvent.change(inputElement, { target: { value: 'wassup' } });
       expect(inputElement.value).toBe('wassup');
@@ -78,14 +78,78 @@ describe('Product card', () => {
       fireEvent.click(screen.getByTestId('atc'));
       expect(mockAddToCart).not.toHaveBeenCalled();
     });
+
+    it('shows invalid input message after clicking add to cart button with invalid input', () => {
+      fireEvent.change(screen.getByRole('textbox'), {
+        target: { value: 'wassup' },
+      });
+      fireEvent.click(screen.getByTestId('atc'));
+      expect(screen.getByText(/invalid quantity/i)).toBeInTheDocument();
+    });
+
+    it('input box is not in focus when clicked after add to cart is successful', async () => {
+      fireEvent.click(screen.getByTestId('atc'));
+      const inputElement = screen.getByRole('textbox');
+      fireEvent.click(inputElement);
+      expect(inputElement).not.toHaveFocus();
+    });
+
+    it('input box value cannot be changed after add to cart is successful', async () => {
+      fireEvent.click(screen.getByTestId('atc'));
+      const inputElement = screen.getByRole('textbox');
+      fireEvent.change(inputElement, { target: { value: 'wassup' } });
+      expect(inputElement.value).not.toBe('wassup');
+    });
+  });
+
+  describe('Increment decrement buttons', () => {
+    it('increment button increases input quantity box value by 1 if value is valid', () => {
+      fireEvent.click(screen.getByTestId('increment'));
+      expect(screen.getByRole('textbox').value).toBe('2');
+    });
+
+    it('decrement button decreases input quantity box value by 1 if value is valid', () => {
+      const inputElement = screen.getByRole('textbox');
+      fireEvent.change(inputElement, { target: { value: '10' } });
+      fireEvent.click(screen.getByTestId('decrement'));
+      expect(inputElement.value).toBe('9');
+    });
+
+    it('clickable increment button disappears after add to cart successful', () => {
+      fireEvent.click(screen.getByTestId('atc'));
+      expect(screen.queryByTestId('increment')).not.toBeInTheDocument();
+    });
+
+    it('clickable decrement button disappears after add to cart successful', () => {
+      fireEvent.click(screen.getByTestId('atc'));
+      expect(screen.queryByTestId('decrement')).not.toBeInTheDocument();
+    });
+
+    it('disabled increment button appears after add to cart successful', () => {
+      fireEvent.click(screen.getByTestId('atc'));
+      expect(screen.getByTestId('increment-cart')).toBeInTheDocument();
+    });
+
+    it('disabled decrement button appears after add to cart successful', () => {
+      fireEvent.click(screen.getByTestId('atc'));
+      expect(screen.queryByTestId('decrement-cart')).toBeInTheDocument();
+    });
+
+    it('decrement button does not change quantity if quantity is already 1', () => {
+      const inputElement = screen.getByRole('textbox');
+      fireEvent.change(inputElement, { target: { value: '1' } });
+      const quantity = inputElement.value;
+      fireEvent.click(screen.getByTestId('decrement'));
+      expect(inputElement.value).toBe(quantity);
+    });
+
+    it('increment button does not change quantity if quantity is 999', () => {
+      const inputElement = screen.getByRole('textbox');
+      fireEvent.change(inputElement, { target: { value: '999' } });
+      const quantity = inputElement.value;
+      fireEvent.click(screen.getByTestId('increment'));
+      expect(inputElement.value).toBe(quantity);
+    });
   });
 });
 
-/*
-  increment decrement input disabled when items added to cart
-  does not allow atc when invalid input
-  shows error message when invalid input
-  increment increases input quantity by 1 but not if number is 999
-  decrement decreases input quantity by 1 but not if it's already 1
-  input always reflects what user has typed
-*/

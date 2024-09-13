@@ -65,7 +65,7 @@ const Card = ({ product, addToCart }) => {
               <button
                 onClick={decrement}
                 className={styles.disabled}
-                data-testid="decrement"
+                data-testid="decrement-cart"
               >
                 -
               </button>
@@ -91,7 +91,7 @@ const Card = ({ product, addToCart }) => {
               <button
                 onClick={increment}
                 className={styles.disabled}
-                data-testid="increment"
+                data-testid="increment-cart"
               >
                 +
               </button>
