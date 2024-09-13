@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import Cart from '../components/Cart';
 import { BrowserRouter, useOutletContext } from 'react-router-dom';
