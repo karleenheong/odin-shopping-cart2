@@ -12,20 +12,46 @@ input[type='number']::-webkit-outer-spin-button {
   margin: 50px 30px;
 }
 
+/* Large tablets and medium-sized desktops */
 @media screen and (max-width: 1200px) {
   .productsDiv {
     grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin: 40px 25px;
   }
 }
 
-@media screen and (max-width: 900px) {
+/* Tablets and small desktops */
+@media screen and (max-width: 992px) {
   .productsDiv {
     grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin: 30px 20px;
   }
 }
 
-@media screen and (max-width: 600px) {
+/* Large phones and small tablets */
+@media screen and (max-width: 768px) {
   .productsDiv {
-    grid-template-columns: 1fr;
+    gap: 20px;
+    margin: 25px 15px;
+  }
+}
+
+/* Most phones (portrait) */
+@media screen and (max-width: 576px) {
+  .productsDiv {
+    grid-template-columns: repeat(2, 1fr);  /* 2 columns for standard mobile */
+    gap: 15px;
+    margin: 20px 10px;
+  }
+}
+
+/* Very narrow screens and skinny phones */
+@media screen and (max-width: 380px) {
+  .productsDiv {
+    grid-template-columns: 1fr;  /* 1 column for very narrow screens */
+    gap: 20px;
+    margin: 15px 10px;
   }
 }
