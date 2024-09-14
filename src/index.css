@@ -5,6 +5,10 @@
   font-family: Verdana, Tahoma, sans-serif;
 }
 
+body {
+  overscroll-behavior-y: none;
+}
+
 button {
   border: none;
   background-color: none;
