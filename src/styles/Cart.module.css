@@ -131,3 +131,72 @@ hr {
 /* div {
   border: 1px solid purple;
 } */
+
+@media screen and (max-width: 900px) {
+  .headings {
+    grid-template-columns: 3fr 1fr 1fr;
+  }
+
+  .productDiv {
+    grid-template-columns: 1fr 2fr 1fr 1fr;
+  }
+
+  .headings > *:last-child,
+  .productDiv > *:last-child {
+    display: none;
+  }
+
+  .totalDiv {
+    text-align: center;
+  }
+
+  .totalPrice {
+    margin: 0;
+  }
+
+  .checkoutBtn {
+    align-self: center;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .cartContainer {
+    padding: 20px;
+  }
+
+  .headings {
+    grid-template-columns: 1fr;
+  }
+
+  #headingProduct {
+    text-align: center;
+  }
+
+  .productDiv {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .headings > :not(:first-child),
+  .productDiv > *:last-child {
+    display: none;
+  }
+
+  .pageTitle {
+    font-size: 1.5rem;
+    margin: 10px;
+  }
+
+  .productsDiv {
+    margin: 10px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .cartContainer {
+    padding: 10px;
+  }
+
+  .productTitle {
+    font-size: 0.9rem;
+  }
+}

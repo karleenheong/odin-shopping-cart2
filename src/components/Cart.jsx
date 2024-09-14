@@ -53,7 +53,7 @@ const Cart = () => {
                   <img src={product.image} alt="product image" />
                 </div>
 
-                <div className={styles.gridText} data-testid="title">
+                <div className={`${styles.gridText} ${styles.productTitle}`} data-testid="title">
                   {product.title}
                 </div>
 
