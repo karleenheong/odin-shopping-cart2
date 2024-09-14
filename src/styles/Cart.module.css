@@ -55,6 +55,10 @@
   width: 100px;
 }
 
+.productTitle {
+  padding: 0 10px;
+}
+
 .plusMinus {
   height: 30px;
   width: 30px;
@@ -198,5 +202,6 @@ hr {
 
   .productTitle {
     font-size: 0.9rem;
+    padding: 0 8px;
   }
 }

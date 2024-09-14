@@ -1,8 +1,11 @@
 import styles from '../styles/Navbar.module.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import cartIcon from '../assets/cart.png';
 
 const Navbar = ({ totalNumberItems }) => {
+  const location = useLocation();
+  const isCartPage = location.pathname === '/cart';
+
   return (
     <nav className={styles.navbar}>
       <ul className={styles.navLinks}>
@@ -14,7 +17,7 @@ const Navbar = ({ totalNumberItems }) => {
             <div className={styles.backToShop}>Continue Shopping</div>
           </NavLink>
         </li>
-        <li>
+        <li className={isCartPage ? styles.hideLogo : ''}>
           <h1 className={styles.logo}>K's Shop</h1>
         </li>
         <li>
